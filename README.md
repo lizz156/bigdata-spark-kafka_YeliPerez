@@ -1,36 +1,61 @@
-# Análisis de datos con Spark y Kafka
+# Análisis de Datos en Batch y Streaming con Spark y Kafka
 
-## 📌 Descripción
+## Descripción
+Este proyecto implementa el análisis de datos en batch utilizando Apache Spark, y procesamiento en tiempo real utilizando Apache Kafka y Spark Streaming.
 
-En este proyecto se realiza el análisis de datos utilizando dos enfoques:
+## Tecnologías utilizadas
+- Apache Spark
+- Apache Kafka
+- Python
+- Hadoop (máquina virtual)
 
-- Procesamiento por lotes (batch) con Apache Spark
-- Procesamiento en tiempo real (streaming) con Apache Kafka y Spark Streaming
+##  Procesamiento Batch
+Se realiza análisis de datos utilizando Spark sobre un conjunto de datos previamente cargado.
 
-El objetivo es entender cómo se pueden procesar datos históricos y también datos en tiempo real simulando información de sensores.
-
----
-
-## 📊 Procesamiento por lotes (Batch)
-
-Para esta parte se utilizó Spark con el fin de analizar datos y obtener resultados agregados.
-
-Archivo utilizado:
+Archivo:
+```bash
 - batch_analysis.py
+```
 
-Este script permite agrupar la información por sensor y calcular valores como el promedio.
+## Procesamiento en Tiempo Real
+Se implementa un sistema de streaming donde:
+- Un productor genera datos simulados de sensores
+- Kafka transmite los datos
+- Spark Streaming procesa la información en tiempo real
 
-### ▶️ Ejecución
-
+Archivos:
 ```bash
-spark-submit batch_analysis.py
+- kafka_producer.py
+- spark_streaming_consumer.py
+```
 
-## 🔄 Procesamiento en Tiempo Real (Kafka + Spark Streaming)
+## nstrucciones de ejecución
 
-### 1. Instalación de Kafka
-
+### 1. Iniciar servicios
 ```bash
-pip install kafka-python
-wget https://downloads.apache.org/kafka/3.8.0/kafka_2.12-3.8.0.tgz
-tar -xzf kafka_2.12-3.8.0.tgz
-sudo mv kafka_2.12-3.8.0 /opt/Kafka
+zookeeper-server-start.sh config/zookeeper.properties
+kafka-server-start.sh config/server.properties
+```
+
+2. Crear topic
+```bash
+kafka-topics.sh --create --topic sensor_data --bootstrap-server localhost:9092
+```
+
+4. Ejecutar productor
+```bash
+python3 kafka_producer.py
+```
+
+6. Ejecutar consumidor
+```bash
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.3 spark_streaming_consumer.py
+```
+
+Resultados
+
+Se obtienen promedios de temperatura y humedad por sensor en ventanas de tiempo de 1 minuto.
+
+👩‍💻 Autor
+
+Yeli Lizzeth pérez Sepúlveda
