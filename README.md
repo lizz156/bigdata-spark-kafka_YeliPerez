@@ -25,8 +25,6 @@ Archivo utilizado:
 
 Este script permite agrupar la información por sensor y calcular valores como el promedio.
 
-### Ejecución
-
 ```bash
 spark-submit batch_analysis.py
 
