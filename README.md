@@ -24,3 +24,13 @@ Este script permite agrupar la información por sensor y calcular valores como e
 
 ```bash
 spark-submit batch_analysis.py
+
+## 🔄 Procesamiento en Tiempo Real (Kafka + Spark Streaming)
+
+### 1. Instalación de Kafka
+
+```bash
+pip install kafka-python
+wget https://downloads.apache.org/kafka/3.8.0/kafka_2.12-3.8.0.tgz
+tar -xzf kafka_2.12-3.8.0.tgz
+sudo mv kafka_2.12-3.8.0 /opt/Kafka
