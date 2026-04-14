@@ -28,6 +28,7 @@ Este script permite agrupar la información por sensor y calcular valores como e
 ```bash
 spark-submit batch_analysis.py
 
+---
 
 ## Resultado esperado
 
@@ -36,6 +37,7 @@ Se obtienen resultados agrupados por sensor, por ejemplo:
 Promedio de temperatura
 Promedio de humedad
 
+---
 
 ## Procesamiento en tiempo real (Streaming)
 
