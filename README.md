@@ -30,16 +30,16 @@ Este script permite agrupar la información por sensor y calcular valores como e
 ```bash
 spark-submit batch_analysis.py
 
----
-### Resultado esperado
+
+## Resultado esperado
 
 Se obtienen resultados agrupados por sensor, por ejemplo:
 
 Promedio de temperatura
 Promedio de humedad
 
----
-### Procesamiento en tiempo real (Streaming)
+
+## Procesamiento en tiempo real (Streaming)
 
 En esta parte se implementa un flujo de datos en tiempo real utilizando Kafka y Spark Streaming.
 
@@ -48,7 +48,6 @@ El proceso funciona de la siguiente manera:
 Un productor genera datos simulados
 Kafka recibe y transmite los datos
 Spark Streaming procesa la información en tiempo real
-
 
 ---
 Pasos realizados
